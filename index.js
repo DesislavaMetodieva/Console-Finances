@@ -86,3 +86,25 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+console.log("Financial Analysis");
+
+console.log("----------------------------");
+
+// Declare all variables: totalMonthCount; net total amount of Profit/losses over the entire period; months; financeMonthly; 
+
+// totalMonthCount
+
+let totalMonthCount;
+totalMonthCount = finances.length;
+console.log ("Total Months: " + totalMonthCount);
+
+// How to split the first data set and the second data sent, so we console.log the sum of all Profile/Losses
+
+// You will need to track what the total change in profits is from month to month and then find the average. -> (Total/Number of months)
+
+// The greatest increase in profits (date and amount) over the entire period.
+
+// The greatest decrease in losses (date and amount) over the entire period.
+
+// it would be on the console, so on the script.js and via console.log statements
