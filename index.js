@@ -1,3 +1,5 @@
+'use strict';
+
 var finances = [
 ['Jan-2010', 867884],
 ['Feb-2010', 984655],
@@ -71,7 +73,7 @@ var finances = [
 ['Oct-2015', 332067],
 ['Nov-2015', 989499],
 ['Dec-2015', 778237],
-['Jan-2016', 650000],
+['Jan-2016', 650000], 
 ['Feb-2016', -1100387],
 ['Mar-2016', -174946],
 ['Apr-2016', 757143],
@@ -95,16 +97,33 @@ console.log("----------------------------");
 
 // totalMonthCount
 
-let totalMonthCount;
+var totalMonthCount;
 totalMonthCount = finances.length;
 console.log ("Total Months: " + totalMonthCount);
 
-// How to split the first data set and the second data sent, so we console.log the sum of all Profile/Losses
+// How to split the first data set and the second data set, so we console.log the sum of all Profile/Losses
 
-// You will need to track what the total change in profits is from month to month and then find the average. -> (Total/Number of months)
+var dateMonth = [];
+for (var i = 0; i < finances.length; i++) {
+    dateMonth.push (finances[i][1]);
+};
 
-// The greatest increase in profits (date and amount) over the entire period.
+// How to sum the total of all values within array dateMonth // 
+var totalDateMonth = 0;
 
-// The greatest decrease in losses (date and amount) over the entire period.
+for (var i = 0; i < dateMonth.length; i++){
+    totalDateMonth += dateMonth[i];
+};
+
+console.log("Total: $" + totalDateMonth);
+
+
+// You will need to track what the total change in profits is from month to month and then find the average. -> (Total/Number of months) -> we need to calculate the difference between every to months and then devide by the total number of calculations
+
+// https://stackoverflow.com/questions/74407724/sales-data-js
+
+// The greatest increase in profits (date and amount) over the entire period. - to get all differences between months and output it the biggest difference amount
+
+// The greatest decrease in losses (date and amount) over the entire period. - to get all differences between months and output it the biggest difference amount
 
 // it would be on the console, so on the script.js and via console.log statements
