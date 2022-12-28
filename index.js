@@ -1,5 +1,4 @@
-'use strict';
-
+'use strict';;
 var finances = [
 ['Jan-2010', 867884],
 ['Feb-2010', 984655],
@@ -93,7 +92,7 @@ console.log("Financial Analysis");
 
 console.log("----------------------------");
 
-// Declare all variables: totalMonthCount; net total amount of Profit/losses over the entire period; months; financeMonthly; 
+// Declare all variables: totalMonthCount; net total amount of Profit/losses over the entire period //
 
 // totalMonthCount
 
@@ -106,24 +105,86 @@ console.log ("Total Months: " + totalMonthCount);
 var dateMonth = [];
 for (var i = 0; i < finances.length; i++) {
     dateMonth.push (finances[i][1]);
-};
+}
 
 // How to sum the total of all values within array dateMonth // 
+
 var totalDateMonth = 0;
 
 for (var i = 0; i < dateMonth.length; i++){
     totalDateMonth += dateMonth[i];
-};
+}
 
 console.log("Total: $" + totalDateMonth);
 
 
-// You will need to track what the total change in profits is from month to month and then find the average. -> (Total/Number of months) -> we need to calculate the difference between every to months and then devide by the total number of calculations
+// You will need to track what the total change in profits is from month to month and then find the average. -> (Total/Number of months) 
 
-// https://stackoverflow.com/questions/74407724/sales-data-js
+function difference(dateMonth) {
+ var newArray = [];
+ for (var i = 1; i < dateMonth.length; i++)
+ newArray.push(dateMonth[i] - dateMonth[i - 1])
+ return newArray;
+}
 
-// The greatest increase in profits (date and amount) over the entire period. - to get all differences between months and output it the biggest difference amount
+// testing if I pushed the new values into the new array correctly by logging to the console
+// console.log(difference(dateMonth));
 
-// The greatest decrease in losses (date and amount) over the entire period. - to get all differences between months and output it the biggest difference amount
 
-// it would be on the console, so on the script.js and via console.log statements
+// Declaring the total sum of changes in profits from month to month 
+
+var totalSumDiff = 0;
+
+for (var i = 0; i < difference(dateMonth).length; i++) {
+ totalSumDiff += difference(dateMonth)[i];
+}
+
+// Next step is to calculate the difference between every two months and then devide by the total number of calculations. I calculate the Average Profit Loss number by dividing the months from the array without the first one as I believe this one should not be part of the calculations.
+
+var averageProfitLoss = totalSumDiff / (dateMonth.length - 1);
+
+console.log("Average  Change: $" + Number(averageProfitLoss).toFixed(2));
+
+// finding the largest number from the difference(dateMonth) array
+
+let arr = difference(dateMonth)
+
+function largest(arr) {
+    let i;
+   
+    // Initialize maximum element
+    let max = arr[0];
+
+    // Traverse array elements 
+    // from second and compare
+    // every element with current max 
+    for (i = 1; i < arr.length; i++) {
+        if (arr[i] > max)
+            max = arr[i];
+    }
+     
+  return max;
+}
+
+console.log(largest(arr));
+
+// findest the smallest number out of all values within difference(dateMonth) == newly made arr array
+
+function smallest(arr) {
+    let i;
+   
+    // Initialize maximum element
+    let min = arr[0];
+
+    // Traverse array elements 
+    // from second and compare
+    // every element with current max 
+    for (i = 1; i < arr.length; i++) {
+        if (arr[i] < min)
+            min = arr[i];
+    }
+     
+  return min;
+}
+
+console.log(smallest(arr));
