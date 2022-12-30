@@ -1,4 +1,5 @@
-'use strict';;
+'use strict';
+
 var finances = [
 ['Jan-2010', 867884],
 ['Feb-2010', 984655],
@@ -145,46 +146,44 @@ var averageProfitLoss = totalSumDiff / (dateMonth.length - 1);
 
 console.log("Average  Change: $" + Number(averageProfitLoss).toFixed(2));
 
+
 // finding the largest number from the difference(dateMonth) array
 
 let arr = difference(dateMonth)
-
 function largest(arr) {
     let i;
-   
     // Initialize maximum element
     let max = arr[0];
-
-    // Traverse array elements 
+    // Traverse array elements
     // from second and compare
-    // every element with current max 
+    // every element with current max
     for (i = 1; i < arr.length; i++) {
         if (arr[i] > max)
             max = arr[i];
     }
-     
   return max;
 }
-
 console.log(largest(arr));
 
 // findest the smallest number out of all values within difference(dateMonth) == newly made arr array
-
 function smallest(arr) {
     let i;
-   
     // Initialize maximum element
     let min = arr[0];
-
-    // Traverse array elements 
+    // Traverse array elements
     // from second and compare
-    // every element with current max 
+    // every element with current max
     for (i = 1; i < arr.length; i++) {
         if (arr[i] < min)
             min = arr[i];
     }
-     
   return min;
 }
-
 console.log(smallest(arr));
+
+
+
+
+
+
+
