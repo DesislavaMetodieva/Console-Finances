@@ -1,7 +1,7 @@
 # Console-Finances
 
 
-# Disciption
+# Description
 I have been given a dataset composed of arrays with two fields: Date and Profit/Losses. I did a financial analysis of the data and was able to calculate and print key information in the browser console. I used loops, declared various variables, worked with multi-dimentional arrays, switch cases and key value pairs through an object.
 
 # Installation
