@@ -93,7 +93,9 @@ console.log("Financial Analysis");
 
 console.log("----------------------------");
 
-// Declare all variables: totalMonthCount; net total amount of Profit/losses over the entire period //
+// Declare all variables: totalMonthCount; net total amount of Profit/losses over the entire period 
+
+
 
 // totalMonthCount
 
@@ -103,33 +105,42 @@ console.log ("Total Months: " + totalMonthCount);
 
 // How to split the first data set and the second data set, so we console.log the sum of all Profile/Losses
 
+var financeMonths = [];
+var netTotal = 0;
+var months = [];
+var changeObj = [];
 var dateMonth = [];
-for (var i = 0; i < finances.length; i++) {
-    dateMonth.push (finances[i][1]);
-}
+var totalDateMonth = 0;
 
-// How to sum the total of all values within array dateMonth // 
+for (var i = 0; i < finances.length; i++) {
+    dateMonth.push(finances[i][1]);
+    months.push(finances[i][0]);
+};
+
+// How to sum the total of all values within array dateMonth //
 
 var totalDateMonth = 0;
 
 for (var i = 0; i < dateMonth.length; i++){
     totalDateMonth += dateMonth[i];
-}
+};
 
 console.log("Total: $" + totalDateMonth);
 
+// 
 
-// You will need to track what the total change in profits is from month to month and then find the average. -> (Total/Number of months) 
+// How to track what the total change in profits is from month to month and then find the average. -> (Total/Number of months) 
 
-function difference(dateMonth) {
+function difference(dateMonth) 
+{
  var newArray = [];
- for (var i = 1; i < dateMonth.length; i++)
- newArray.push(dateMonth[i] - dateMonth[i - 1])
+  for (var i = 1; i < dateMonth.length; i++){
+    newArray.push(dateMonth[i] - dateMonth[i - 1]);
+    changeObj[months[i]] = newArray[i - 1];
+  }
+ 
  return newArray;
-}
-
-// testing if I pushed the new values into the new array correctly by logging to the console
-// console.log(difference(dateMonth));
+};
 
 
 // Declaring the total sum of changes in profits from month to month 
@@ -138,7 +149,8 @@ var totalSumDiff = 0;
 
 for (var i = 0; i < difference(dateMonth).length; i++) {
  totalSumDiff += difference(dateMonth)[i];
-}
+};
+
 
 // Next step is to calculate the difference between every two months and then devide by the total number of calculations. I calculate the Average Profit Loss number by dividing the months from the array without the first one as I believe this one should not be part of the calculations.
 
@@ -147,43 +159,31 @@ var averageProfitLoss = totalSumDiff / (dateMonth.length - 1);
 console.log("Average  Change: $" + Number(averageProfitLoss).toFixed(2));
 
 
-// finding the largest number from the difference(dateMonth) array
+const logResults = () =>
+{
+    const resultValues = Object.values(changeObj);
 
-let arr = difference(dateMonth)
-function largest(arr) {
-    let i;
-    // Initialize maximum element
-    let max = arr[0];
-    // Traverse array elements
-    // from second and compare
-    // every element with current max
-    for (i = 1; i < arr.length; i++) {
-        if (arr[i] > max)
-            max = arr[i];
+    // finding the largest number from the array with differences for every pair of months
+
+    const max = Math.max(...resultValues);
+    const min = Math.min(...resultValues);
+
+    //Loop key value pairs to find min and max values
+
+    for (let [monthName, monthResult] of Object.entries(changeObj))
+    {
+        switch (monthResult) 
+        {
+            // Logging to the console the greatest increase & decrease in Profits
+            
+            case max:
+                console.log("Greatest Increase in Profits: " + monthName + " ($" + monthResult + ")");
+                break;
+            case min:
+                console.log("Greatest Decrease in Profits: " + monthName + " ($" + monthResult + ")");
+                break;
+        }
     }
-  return max;
-}
-console.log(largest(arr));
+};
 
-// findest the smallest number out of all values within difference(dateMonth) == newly made arr array
-function smallest(arr) {
-    let i;
-    // Initialize maximum element
-    let min = arr[0];
-    // Traverse array elements
-    // from second and compare
-    // every element with current max
-    for (i = 1; i < arr.length; i++) {
-        if (arr[i] < min)
-            min = arr[i];
-    }
-  return min;
-}
-console.log(smallest(arr));
-
-
-
-
-
-
-
+logResults();
