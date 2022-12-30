@@ -12,6 +12,8 @@ No need for specific installation, you need only a web browser and good internet
 
 Please follow the URL, so you can open the application: https://desislavametodieva.github.io/Console-Finances/
 
+![image](https://user-images.githubusercontent.com/82023025/210106816-d4850b91-8a6d-4146-81d5-0b445e1452f7.png)
+
 # Credits
 
 No collaborators for now.
