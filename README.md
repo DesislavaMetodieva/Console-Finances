@@ -8,7 +8,7 @@ I have been given a dataset composed of arrays with two fields: Date and Profit/
 
 No need for specific installation, you need only a web browser and good internet connection to visit the URL below and open the console.
 
-# Installation
+# Usage
 
 Please follow the URL, so you can open the application: https://desislavametodieva.github.io/Console-Finances/
 

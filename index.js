@@ -93,17 +93,7 @@ console.log("Financial Analysis");
 
 console.log("----------------------------");
 
-// Declare all variables: totalMonthCount; net total amount of Profit/losses over the entire period 
-
-
-
-// totalMonthCount
-
-var totalMonthCount;
-totalMonthCount = finances.length;
-console.log ("Total Months: " + totalMonthCount);
-
-// How to split the first data set and the second data set, so we console.log the sum of all Profile/Losses
+// Declare all variables 
 
 var financeMonths = [];
 var netTotal = 0;
@@ -111,6 +101,15 @@ var months = [];
 var changeObj = [];
 var dateMonth = [];
 var totalDateMonth = 0;
+
+// totalMonthCount
+
+var totalMonthCount;
+totalMonthCount = finances.length;
+console.log ("Total Months: " + totalMonthCount);
+
+
+// How to split the first data set and the second data set, so we console.log the sum of all Profile/Losses
 
 for (var i = 0; i < finances.length; i++) {
     dateMonth.push(finances[i][1]);
@@ -127,8 +126,6 @@ for (var i = 0; i < dateMonth.length; i++){
 
 console.log("Total: $" + totalDateMonth);
 
-// 
-
 // How to track what the total change in profits is from month to month and then find the average. -> (Total/Number of months) 
 
 function difference(dateMonth) 
@@ -141,7 +138,6 @@ function difference(dateMonth)
  
  return newArray;
 };
-
 
 // Declaring the total sum of changes in profits from month to month 
 
@@ -159,13 +155,14 @@ var averageProfitLoss = totalSumDiff / (dateMonth.length - 1);
 console.log("Average  Change: $" + Number(averageProfitLoss).toFixed(2));
 
 
-const logResults = () =>
+const logConsole = () =>
 {
     const resultValues = Object.values(changeObj);
 
     // finding the largest number from the array with differences for every pair of months
 
     const max = Math.max(...resultValues);
+
     const min = Math.min(...resultValues);
 
     //Loop key value pairs to find min and max values
@@ -186,4 +183,4 @@ const logResults = () =>
     }
 };
 
-logResults();
+logConsole();
